@@ -1,17 +1,12 @@
 #!/usr/bin/env bash
-# Install nginx web server
-apt-get update
-apt-get install -y nginx
+# Installing nginx on web-01
+sudo apt-get update
+sudo apt-get install -y nginx
+sudo ufw 'Nginx HTTP'
 
-mkdir /etc/nginx/html
-touch /etc/nginx/html/index.html
-echo "Holberton School" > /etc/nginx/html/index.html
-printf %s "server {
-     listen      80 default_server;
-     listen      [::]:80 default_server;
-     root        /etc/nginx/html;
-     index       index.html index.htm;
-}
-" > /etc/nginx/sites-available/default
+echo "Holberton School" | sudo tee /var/www/html/index.html
 
-service nginx restart
+#Testing nginx successfullness
+sudo nginx -t
+
+sudo service nginx reload
