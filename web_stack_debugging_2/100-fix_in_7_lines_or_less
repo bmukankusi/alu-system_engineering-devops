@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-##  Run Nginx as Nginx 7 lines or less
 apt-get update
 apt-get install -y nginx
 useradd -r nginx
