@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-apt-get update
+#  Run Nginx as Nginx 7 lines or less 
 apt-get install -y nginx
 useradd -r nginx
 sed -i 's/^user .*/user nginx;/g' /etc/nginx/nginx.conf
