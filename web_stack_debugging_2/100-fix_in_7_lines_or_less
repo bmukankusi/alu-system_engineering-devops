@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-#  Run Nginx as Nginx 7 lines or less 
-apt-get install -y nginx
-useradd -r nginx
-sed -i 's/^user .*/user nginx;/g' /etc/nginx/nginx.conf
-service nginx restart
-echo "Nginx is now running as nginx user and listening on all active IPs on port 8080."
+# bash script that configures container
+sudo chmod -R 755 /etc/nginx/
+sudo pkill -9 apache2
+sudo sed -i 's/8080/8081/g' /etc/apache2/ports.conf
+su nginx -c "sed -i 's/80/8080/g' /etc/nginx/sites-enabled/default"
+su nginx service nginx restart
